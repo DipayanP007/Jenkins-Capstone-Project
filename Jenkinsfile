@@ -42,15 +42,12 @@ pipeline
     {
         always
         {
-            emailext (attachLog: true, body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS: 
-            
-            Check console output at $BUILD_URL to view the results.''', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'dipayan.pramanik@knoldus.com')
-            
+            emailext body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: 'dipayan.pramanik@knoldus.com'   
         }
         success{
             sh 'echo "--------------------------Deploying------------------------------"'
-            sshPublisher(publishers: [sshPublisherDesc(configName: 'Production-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd Hello-Spring/target
-java -jar *.jar &''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'Hello-Spring', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+            sshPublisher(publishers: [sshPublisherDesc(configName: 'Production-Server', transfers: [sshTransfer(cleanRemote: true, excludes: '', execCommand: '''cd Hello-Spring/target
+java -jar *.jar &''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'Hello-Spring', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             cleanWs()
         }
     }
