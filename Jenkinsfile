@@ -48,7 +48,7 @@ pipeline
             
         }
         success{
-            sh 'echo "--------------------------Deploying------------------------------'
+            sh 'echo "--------------------------Deploying------------------------------"'
             sshPublisher(publishers: [sshPublisherDesc(configName: 'Production-Server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '''cd Hello-Spring
 java -jar *.jar &''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'Hello-Spring', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
         
