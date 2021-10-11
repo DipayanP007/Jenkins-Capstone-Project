@@ -42,7 +42,7 @@ pipeline
     {
         always
         {
-            emailext body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: 'dipayan.pramanik@knoldus.com'   
+            emailext (attachLog: true, body: '$DEFAULT_CONTENT', subject: '$DEFAULT_SUBJECT', to: 'dipayan.pramanik@knoldus.com')  
         }
         success{
             sh 'echo "--------------------------Deploying------------------------------"'
