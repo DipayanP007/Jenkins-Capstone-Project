@@ -47,7 +47,7 @@ pipeline
         success{
             sh 'echo "--------------------------Deploying------------------------------"'
             sshPublisher(publishers: [sshPublisherDesc(configName: 'Production-Server', transfers: [sshTransfer(cleanRemote: true, excludes: '', execCommand: '''cd Hello-Spring/target
-java -jar *.jar --httpPort=9090 &''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'Hello-Spring', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
+java -jar *.jar &''', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'Hello-Spring', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*.jar')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: true)])
             cleanWs()
         }
     }
