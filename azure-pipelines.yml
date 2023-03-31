@@ -5,7 +5,8 @@ trigger:
             - '*'
 
 pool:
-    name: 'ubuntu-latest'
+  vmImage: 'ubuntu-latest'
+  #  vm: 'ubuntu-latest'
 
 variables:
     MYVAR: "hello"
