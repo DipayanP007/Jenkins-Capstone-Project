@@ -40,6 +40,9 @@ stages:
         
       env:
         UI: '$(UI_VAR_SEC)'
-
+    - task: TerraformInstaller@0
+      inputs:
+        terraformVersion: 'latest'
+    
         
         
