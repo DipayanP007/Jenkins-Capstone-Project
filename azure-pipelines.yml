@@ -19,6 +19,7 @@ stages:
   - job: printscript
     steps:
     - script: |
+        #!/bin/bash
         ls
         whoami
         hostname
@@ -31,5 +32,7 @@ stages:
         echo '$(UI_VAR_NOSECRET)'
         echo '$(UI_VAR_SEC)'
         bash "echo '$(UI_VAR_NOSECRET)'"
+        echo $SHELL
+
         
         
