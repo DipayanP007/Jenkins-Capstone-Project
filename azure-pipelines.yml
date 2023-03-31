@@ -14,12 +14,14 @@ stages:
 - stage: Tryout
   displayName: 'Try out ado'
   variables:
-    STAGE_VAR: "stagevar"
+    STAGE_VAR: '$(UI_VAR_NOSECRET)'
+    SECRET_VAR: '$(UI_VAR_SEC)'
   jobs:
   - job: printscript
     steps:
-    - script: |
+    - bash: |
         #!/bin/bash
+        set -x
         ls
         whoami
         hostname
@@ -29,10 +31,12 @@ stages:
         echo $MYVAR
         echo '$(STAGE_VAR)'
         echo $STAGE_VAR
-        echo '$(UI_VAR_NOSECRET)'
+        echo $UI
         echo '$(UI_VAR_SEC)'
         bash "echo '$(UI_VAR_NOSECRET)'"
         echo $SHELL
+      env:
+        UI: '$(UI_VAR_SEC)'
 
         
         
