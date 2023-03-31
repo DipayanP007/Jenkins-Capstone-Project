@@ -30,6 +30,6 @@ stages:
         echo $STAGE_VAR
         echo '$(UI_VAR_NOSECRET)'
         echo '$(UI_VAR_SEC)'
-        bash 'echo "$(UI_VAR_NOSECRET)"'
+        bash "echo '$(UI_VAR_NOSECRET)'"
         
         
