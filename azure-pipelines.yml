@@ -29,5 +29,6 @@ stages:
         echo '$(STAGE_VAR)'
         echo $STAGE_VAR
         echo $(UI_VAR_NOTSECRET)
+        echo $(UI_VAR_SEC)
         
         
