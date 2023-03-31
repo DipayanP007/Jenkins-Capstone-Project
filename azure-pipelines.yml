@@ -1,1 +1,32 @@
 # Pipeline
+trigger:
+    branches:
+        include:
+            - '*'
+
+pool:
+    name: 'ubuntu-latest'
+
+variables:
+    MYVAR: "hello"
+stages:
+- stage: Tryout
+  displayName: 'Try out ado'
+  variables:
+    STAGE_VAR: "stagevar"
+  jobs:
+  - job: printscript
+    steps:
+    - script: |
+        ls
+        whoami
+        hostname
+        env
+        echo $PATH
+        echo '$(MYVAR)'
+        echo $MYVAR
+        echo '$(STAGE_VAR)'
+        echo $STAGE_VAR
+        echo $(UI_VAR_NOTSECRET)
+        
+        
