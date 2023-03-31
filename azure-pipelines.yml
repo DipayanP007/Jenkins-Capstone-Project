@@ -22,19 +22,20 @@ stages:
     - bash: |
         #!/bin/bash
         set -x
-        ls
-        whoami
-        hostname
-        env
-        echo $PATH
-        echo '$(MYVAR)'
-        echo $MYVAR
-        echo '$(STAGE_VAR)'
+        # ls
+        # whoami
+        # hostname
+        # env
+        # echo $PATH
+        # echo '$(MYVAR)'
+        # echo $MYVAR
+        # echo '$(STAGE_VAR)'
+        # echo $STAGE_VAR
+        # echo $UI
+        # echo '$(UI_VAR_SEC)'
+        # bash "echo '$(UI_VAR_NOSECRET)'"
+        # echo $SHELL
         echo $STAGE_VAR
-        echo $UI
-        echo '$(UI_VAR_SEC)'
-        bash "echo '$(UI_VAR_NOSECRET)'"
-        echo $SHELL
       env:
         UI: '$(UI_VAR_SEC)'
 
