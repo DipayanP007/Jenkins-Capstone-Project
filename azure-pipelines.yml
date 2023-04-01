@@ -5,7 +5,8 @@ trigger:
             - '*'
 
 pool:
-  vmImage: 'ubuntu-latest'
+  #vmImage: 'ubuntu-latest'
+  name: custom
   #  vm: 'ubuntu-latest'
 
 variables:
@@ -22,10 +23,10 @@ stages:
     - bash: |
         #!/bin/bash
         set -x
-        # ls
-        # whoami
-        # hostname
-        # env
+        ls
+        whoami
+        hostname
+        env
         # echo $PATH
         # echo '$(MYVAR)'
         # echo $MYVAR
