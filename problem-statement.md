@@ -1,6 +1,6 @@
 ## Scenario:
 
-Madhukaraphatak is a java developer developed some code which is running fine on his local and wamt you to streamline his work using devops methodologies, Your job is to create CI-CD for him so that he just have to code and push to github and rest of the things can take care itself.
+Madhukaraphatak is a java developer developed some code which is running fine on his local and wamt you to streamline his work using devops methodologies, Your job is to create CI-CD for him so that he just have to code and push to github and rest of the things can take care itself. def
 
 ## Acceptence Criteria:
 
