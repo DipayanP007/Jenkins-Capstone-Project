@@ -2,6 +2,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'mydockerhub'
-    repository: 'servletwar'
-    command: 'build'
-    Dockerfile: '**/Dockerfile'
+    repository: 'tomcatwar'
+    command: 'buildAndPush'
+    Dockerfile: '$(Build.SourcesDirectory)/Jenkins-Capstone-Project/docker/Dockerfile'
+    buildContext: '$(Build.SourcesDirectory)/war-ado'
