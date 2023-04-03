@@ -1,8 +1,8 @@
 # Pipeline
-trigger:
-    branches:
-        include:
-            - '*'
+trigger: none
+    # branches:
+    #     include:
+    #         - '*'
 
 pool:
   vmImage: 'ubuntu-latest'
