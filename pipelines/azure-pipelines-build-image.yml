@@ -18,6 +18,6 @@ steps:
     command: 'buildAndPush'
     Dockerfile: ${{ parameters.DOCKERFILEPATH }}
     # Dockerfile: '$(Build.SourcesDirectory)/Jenkins-Capstone-Project/docker/Dockerfile'
-    buildContext: ${{ paramters.BUILDCONTEXT }}
+    buildContext: ${{ parameters.BUILDCONTEXT }}
     # buildContext: '$(Build.SourcesDirectory)/war-ado'
     tags: ${{ parameters.TAGS }}
