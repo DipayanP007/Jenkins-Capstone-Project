@@ -1,4 +1,5 @@
 # Pipeline
+
 trigger: none
     # branches:
     #     include:
@@ -48,20 +49,36 @@ stages:
     - task: TerraformInstaller@0
       inputs:
         terraformVersion: '1.3.0'
+    # - task: TerraformCLI@0
+    #   inputs:
+    #     command: 'init'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+    #     backendType: 'azurerm'
+    #     backendServiceArm: 'tfbackend'
+    #     backendAzureRmSubscriptionId: 'b00e9e00-4924-464f-929d-7c28ccf1a449'
+    #     backendAzureRmResourceGroupName: 'ado-rg'
+    #     backendAzureRmStorageAccountName: 'adostoragetest'
+    #     backendAzureRmContainerName: 'tfbackend'
+    #     backendAzureRmKey: 'resourcegroup/terraform.tfstate'
+    #     allowTelemetryCollection: true
+    # - task: TerraformCLI@0
+    #   inputs:
+    #     command: 'validate'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+    #     allowTelemetryCollection: true
+    
+    # - task: TerraformCLI@0
+    #   inputs:
+    #     command: 'plan'
+    #     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+    #     environmentServiceName: 'tf-back-mi'
+    #     providerAzureRmSubscriptionId: 'b00e9e00-4924-464f-929d-7c28ccf1a449'
+    #     allowTelemetryCollection: true
+    #     publishPlanResults: 'tfout'
     - task: TerraformCLI@0
       inputs:
         command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
+        secureVarsFile: 'access.env'
         backendType: 'azurerm'
-        backendServiceArm: 'tfbackend'
-        backendAzureRmSubscriptionId: 'b00e9e00-4924-464f-929d-7c28ccf1a449'
-        backendAzureRmResourceGroupName: 'ado-rg'
-        backendAzureRmStorageAccountName: 'adostoragetest'
-        backendAzureRmContainerName: 'tfbackend'
-        backendAzureRmKey: 'resourcegroup/terraform.tfstate'
-        allowTelemetryCollection: true
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
-    - task: TerraformCLI@0
-      inputs:
-        command: 'validate'
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         allowTelemetryCollection: true
