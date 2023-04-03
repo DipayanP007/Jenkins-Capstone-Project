@@ -7,8 +7,8 @@ terraform {
     }
   }
   backend "azurerm" {
-    storage_account_name = "tfstatebackendd"
-    container_name       = "state-backend"
+    storage_account_name = "adostoragetest"
+    container_name       = "tfbackend"
     key                  = "resourcegroup/terraform.tfstate"
   }
 }
