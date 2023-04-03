@@ -4,9 +4,9 @@ parameters:
 - name: REPOSITORY
   type: string
 - name: DOCKERFILEPATH
-  type: String
+  type: string
 - name: BUILDCONTEXT
-  type: String
+  type: string
 - name: TAGS
   type: String
 
