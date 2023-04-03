@@ -8,7 +8,7 @@ parameters:
 - name: BUILDCONTEXT
   type: string
 - name: TAGS
-  type: String
+  type: string
 
 steps:
 - task: Docker@2
