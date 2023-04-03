@@ -51,6 +51,7 @@ stages:
     - task: TerraformCLI@0
       inputs:
         command: 'init'
+        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
         backendType: 'azurerm'
         backendServiceArm: 'tfbackend'
         backendAzureRmSubscriptionId: 'b00e9e00-4924-464f-929d-7c28ccf1a449'
@@ -59,7 +60,6 @@ stages:
         backendAzureRmContainerName: 'tfbackend'
         backendAzureRmKey: 'resourcegroup/terraform.tfstate'
         allowTelemetryCollection: true
-        workingDirectory: '$(System.DefaultWorkingDirectory)/terraform'
     - task: TerraformCLI@0
       inputs:
         command: 'validate'
