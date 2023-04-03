@@ -1,8 +1,23 @@
+paramters:
+- name: CONTAINERREGISTRY
+  default: ''
+- name: REPOSITORY
+  type: string
+- name: DOCKERFILEPATH
+  type: String
+- name: BUILDCONTEXT
+  type: String
+- name: TAGS
+  type: String
+
 steps:
 - task: Docker@2
   inputs:
-    containerRegistry: 'mydockerhub'
-    repository: 'dipayanp007/tomcatwar'
+    containerRegistry: ${{ parameters.CONTAINERREGISTRY }}
+    repository: ${{ parameters.REPOSITORY }}
     command: 'buildAndPush'
-    Dockerfile: '$(Build.SourcesDirectory)/Jenkins-Capstone-Project/docker/Dockerfile'
-    buildContext: '$(Build.SourcesDirectory)/war-ado'
+    Dockerfile: ${{ parameters.DOCKERFILEPATH }}
+    # Dockerfile: '$(Build.SourcesDirectory)/Jenkins-Capstone-Project/docker/Dockerfile'
+    buildContext: ${{ paramters.BUILDCONTEXT }}
+    # buildContext: '$(Build.SourcesDirectory)/war-ado'
+    tags: ${{ parameters.TAGS }}

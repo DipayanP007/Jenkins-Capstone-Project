@@ -6,7 +6,11 @@ COPY . .
 
 RUN mvn clean package
 
+RUN cp target/simple-servlet-0.1.war target/ROOT.war
 
-FROM tomcat
 
-COPY --from=builder /opt/servlet/target/simple-servlet-0.1.war /usr/local/tomcat/webapps/
+FROM tomcat:9.0.73-jdk8-corretto
+
+ENV CATALINA_OPTS="${CATALINA_OPTS} -Dconfig=db.properties"
+
+COPY --from=builder /opt/servlet/target/ROOT.war /usr/local/tomcat/webapps/
