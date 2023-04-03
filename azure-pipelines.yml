@@ -12,35 +12,35 @@ pool:
 variables:
     MYVAR: "hello"
 stages:
-- stage: Tryout
-  displayName: 'Try out ado'
-  variables:
-    STAGE_VAR: $(UI_VAR_NOSECRET)
-    SECRET_VAR: '$(UI_VAR_SEC)'
-  jobs:
-  - job: printscript
-    steps:
-    - bash: |
-        #!/bin/bash
-        set -x
-        ls
-        whoami
-        hostname
-        env
-        # echo $PATH
-        # echo '$(MYVAR)'
-        # echo $MYVAR
-        # echo '$(STAGE_VAR)'
-        # echo $STAGE_VAR
-        # echo $UI
-        # echo '$(UI_VAR_SEC)'
-        # bash "echo '$(UI_VAR_NOSECRET)'"
-        # echo $SHELL
-        echo "$STAGE_VAR"
-        echo "$(UI_VAR_NOSECRET)"
+# - stage: Tryout
+#   displayName: 'Try out ado'
+#   variables:
+#     STAGE_VAR: $(UI_VAR_NOSECRET)
+#     SECRET_VAR: '$(UI_VAR_SEC)'
+#   jobs:
+#   - job: printscript
+#     steps:
+#     - bash: |
+#         #!/bin/bash
+#         set -x
+#         ls
+#         whoami
+#         hostname
+#         env
+#         # echo $PATH
+#         # echo '$(MYVAR)'
+#         # echo $MYVAR
+#         # echo '$(STAGE_VAR)'
+#         # echo $STAGE_VAR
+#         # echo $UI
+#         # echo '$(UI_VAR_SEC)'
+#         # bash "echo '$(UI_VAR_NOSECRET)'"
+#         # echo $SHELL
+#         echo "$STAGE_VAR"
+#         echo "$(UI_VAR_NOSECRET)"
         
-      env:
-        UI: '$(UI_VAR_SEC)'
+#       env:
+#         UI: '$(UI_VAR_SEC)'
 - stage: tf
   jobs:
   - job: tfcmds
